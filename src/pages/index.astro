@@ -1,0 +1,102 @@
+---
+import { Image } from "astro:assets";
+
+import Layout from "@layouts/Layout.astro";
+import Icon from "@components/Icon.astro";
+import WaitList from "@components/forms/WaitList.astro";
+import Sponsors from "@components/Sponsors.astro";
+import Card from "@components/Card.astro";
+import Link from "@components/link/Link.astro";
+
+import BankCredit from "@assets/BankCredit.png";
+---
+
+<Layout title="⚡Rayo⚡">
+    <Icon
+        iconName="RayoLightning"
+        className="w-1/6 h-1/6 mx-auto my-10 fill-white sm:w-1/12 sm:my-8"
+    />
+    <h1
+        class="
+        mb-5
+        text-white text-5xl text-center leading-tight
+        font-inter font-bold
+        sm:text-6xl">
+        Revolución Financiera
+    </h1>
+    <p class="
+        mb-10 px-10
+        text-white text-center text-base
+        font-poppins font-thin">
+        Rayo, dinero digital. Paga, cobra y envía sin fronteras.
+    </p>
+    <WaitList id="wait-list" name="wait-list" action="https://formspree.io/f/mqkrygyb" method="post" />
+    <h2 class="
+        mt-24 mb-5
+        text-white text-center text-base
+        font-poppins font-normal">
+        Con el apoyo de:
+    </h2>
+    <Sponsors/>
+    <h2 class="
+        px-5 mt-20
+        text-white text-center text-2xl
+        font-inter font-bold
+        sm:text-4xl">
+        Enviar dinero de Estados Unidos a México
+    </h2>
+    <p class="
+        px-10 mx-auto mb-20 mt-3
+        text-white text-left text-base
+        font-poppins font-thin
+        sm:text-center">
+        Hoy en día, enviar dinero desde allá te sigue saliendo caro y tardado. Con Rayo esto quedó en el pasado.
+    </p>
+    <div class="
+        mx-auto
+        min-w-64 min-h-72
+        max-w-4xl
+        flex justify-center items-center flex-wrap">
+        <div class="
+            px-10
+            max-w-lg
+            flex flex-col
+            sm:justify-center">
+            <h2 class="
+                text-white text-center text-2xl
+                font-inter font-bold
+                sm:text-4xl sm:text-right">
+                Mejor tipo de cambio Al instante Primera transferencia gratis
+            </h2>
+            <h3 class="
+                my-2
+                text-white text-center text-base
+                font-inter font-normal
+                sm:text-right">
+                Después, 3 USD por operación
+            </h3>
+            <p class="
+                text-white text-center text-xs
+                font-inter font-thin
+                sm:text-right">
+                Límite mensual de 1,000 USD
+            </p class="text-white">
+        </div>
+        <Image
+            src={BankCredit}
+            alt="Credit image"
+            class="size-40 object-contain shrink sm:size-60"/>
+    </div>
+    <Card/>
+    <div
+        class="
+            w-full h-1/12
+            my-10
+            flex flex-col items-center justify-evenly
+            sm:flex-row sm:justify-center sm:gap-10">
+        <Link url="/T&C" text="Términos y Condiciones" />
+        <Link url="/PrivacyNotice" text="Aviso de Privacidad" />
+    </div>
+    <Icon iconName="RayoIsotipo" className="w-full h-6 min-h-6 fill-white" />
+    </div>
+</Layout>

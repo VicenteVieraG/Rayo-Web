@@ -1,0 +1,35 @@
+---
+import { twMerge } from "tailwind-merge";
+import { SVG, cleanupSVG, runSVGO } from "@iconify/tools";
+import { parseSVGContent } from "@iconify/utils";
+import { readFile } from "node:fs/promises";
+import { AstroError } from "astro/errors";
+
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"svg">{
+    iconName: string;
+    className?: string;
+};
+
+const { iconName, className } = Astro.props;
+
+// Read icon and create an SVG instance
+const content: string = await readFile(`./src/icons/${iconName}.svg`, "utf8");
+if(!content) throw new AstroError(`Could not Read Content from "${iconName}.svg" located at ./src/icons/${iconName}.svg`, `Verify if ${iconName}.svg exists or if is in the ./src/icons folder.`);
+const svg: SVG = new SVG(content);
+
+// Cleanup and optimize the svg
+cleanupSVG(svg);
+runSVGO(svg);
+
+// Parse the svg´s body and attributes
+const parsedSVG = parseSVGContent(svg.toString());
+if(!parsedSVG) throw new AstroError(`Error Parsing ${iconName}.svg`, `Check the structure of your file ./src/icons/${iconName}.svg to match an icon component.`);
+
+const { attribs, body } = parsedSVG;
+---
+
+<svg {...attribs} set:html={body} class={twMerge([Astro.props.class, className])}>
+    <title>{iconName}</title>
+</svg>

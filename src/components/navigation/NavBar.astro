@@ -1,0 +1,31 @@
+---
+import Icon from "../Icon.astro";
+---
+
+<style>
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+    @layer components {
+        @keyframes fadeIn {
+            0% {opacity: 0}
+            100% {opacity: 1}
+        }
+        
+        .fade-in {
+            animation: fadeIn 3s both ease-in;
+            animation-delay: 1s;
+        }
+    }
+</style>
+<div class="
+    w-full h-32
+    flex justify-center content-center
+    relative z-10
+    fade-in">
+    <Icon
+        iconName="RayoLightning"
+        class="invert w-20 h-20 iPhone13&14:w-32 iPhone13&14:h-32"
+    />
+</div>

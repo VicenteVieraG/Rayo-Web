@@ -1,0 +1,17 @@
+---
+import { Image } from "astro:assets";
+
+import REDI from "@assets/REDI.png";
+import SICyT2 from "@assets/SICyT2.png";
+import StartupGarden from "@assets/StartupGarden.png";
+import TalentLand from "@assets/TalentLand.png";
+import TEC from "@assets/TEC.png";
+---
+
+<div class="px-10 flex justify-around flex-wrap">
+    <Image src={REDI}           alt="REDI logo"           quality="max" format="png" class="basis-24 object-contain grow-0 shrink"/>
+    <Image src={SICyT2}         alt="SICyT2 logo"         quality="max" format="png" class="basis-24 object-contain grow-0 shrink"/>
+    <Image src={TEC}            alt="TEC logo"            quality="max" format="png" class="basis-24 object-contain grow-0 shrink"/>
+    <Image src={StartupGarden}  alt="Startup Garden logo" quality="max" format="png" class="basis-24 object-contain grow-0 shrink"/>
+    <Image src={TalentLand}     alt="Talent Land logo"    quality="max" format="png" class="basis-24 object-contain grow-0 shrink"/>
+</div>

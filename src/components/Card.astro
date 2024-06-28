@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import WaitList from "@components/forms/WaitList.astro";
+
+import IPhone from "@assets/IPhone.png";
+---
+
+<div class="
+    bg-[#676B8C]
+    w-5/6 h-[552px]
+    p-10
+    mx-auto mt-10
+    rounded-[57px]
+    sm:h-[467px]">
+    <h2 class="
+        mb-10
+        text-white text-center text-3xl
+        font-inter font-bold">
+        Cuenta Rayo
+    </h2>
+    <WaitList id="wait-list" name="wait-list" action="https://formspree.io/f/mqkrygyb" method="post" />
+    <!-- <Image src={IPhone} alt="Mockup IPhone" class="" /> -->
+</div>

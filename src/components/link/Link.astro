@@ -1,0 +1,48 @@
+---
+import { cva } from "cva";
+import { twMerge } from "tailwind-merge";
+
+import type { HTMLAttributes } from "astro/types";
+import type { VariantProps } from "cva";
+
+const link = cva(["text-white text-center", "font-poppins"], {
+    variants: {
+        intent: {
+            primary: [
+                "w-fit h-fit",
+                "font-thin",
+                "cursor-pointer",
+                "relative",
+                "before:absolute before:bottom-0",
+                "before:w-full before:h-px",
+                "before:bg-rblue",
+                "before:scale-x-0",
+                "before:transition before:duration-500 before:ease-in-out",
+                "before:hover:scale-100",
+            ],
+        },
+        size: {
+            small: ["text-xs"],
+        },
+    },
+});
+
+interface Props extends HTMLAttributes<"a">, VariantProps<typeof link> {
+    className?: string;
+    url: string;
+    text: string;
+}
+
+const {
+    className = "",
+    url,
+    text,
+    intent = "primary",
+    size = "small",
+    ...attrs
+} = Astro.props;
+---
+
+<a href={url} class={twMerge([link({ intent, size }), className])} {...attrs}>
+    {text}
+</a>
